@@ -12,12 +12,14 @@ function useTheme() {
     const isLight = stored === "light";
     setLight(isLight);
     document.documentElement.classList.toggle("light", isLight);
+    document.documentElement.classList.toggle("dark", !isLight);
   }, []);
 
   const toggle = () => {
     setLight((prev) => {
       const next = !prev;
       document.documentElement.classList.toggle("light", next);
+      document.documentElement.classList.toggle("dark", !next);
       localStorage.setItem("theme", next ? "light" : "dark");
       return next;
     });
