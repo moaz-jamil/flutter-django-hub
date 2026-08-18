@@ -11,7 +11,7 @@ function useTypedTagline(words: string[]) {
   const [deleting, setDeleting] = useState(false);
 
   useEffect(() => {
-    const word = words[index % words.length];
+    const word = words[index % words.length] ?? "";
     const done = !deleting && text === word;
     const cleared = deleting && text === "";
 
